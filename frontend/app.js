@@ -55,10 +55,10 @@ function atualizarTabela() {
         const tr = document.createElement('tr');
         // Adiciona as células (td) na linha com os dados do endereço
         tr.innerHTML = `
-            <td>${endereco.localidade}</td>  <!-- Cidade -->
-            <td>${endereco.bairro}</td>     <!-- Bairro -->
-            <td>${endereco.uf}</td>         <!-- Estado -->
             <td>${endereco.logradouro}</td> <!-- Endereço -->
+            <td>${endereco.bairro}</td>     <!-- Bairro -->
+            <td>${endereco.localidade}</td>  <!-- Cidade -->
+            <td>${endereco.uf}</td>         <!-- Estado -->
         `;
         // Adiciona a linha criada à tabela
         tabela.appendChild(tr);

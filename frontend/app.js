@@ -9,7 +9,7 @@ function consultarCEP() {
         return;
     }
 
-    // Requisição à API do ViaCEP
+    // Requisicao a API do ViaCEP
     fetch(`https://viacep.com.br/ws/${cep}/json/`)
         .then(response => response.json())
         .then(data => {
@@ -22,7 +22,6 @@ function consultarCEP() {
                     <p><strong>Cidade:</strong> ${data.localidade}</p>
                     <p><strong>Estado:</strong> ${data.uf}</p>
                 `;
-
                 // Armazenar o endereço
                 listaEnderecos.push(data);
                 atualizarListaEnderecos();

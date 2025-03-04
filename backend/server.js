@@ -20,6 +20,17 @@ app.get('/consulta/:cep', async (req, res) => {
     }
 });
 
+const path = require('path');
+
+// Servir arquivos estáticos do frontend
+app.use(express.static(path.join(__dirname, '../frontend')));
+
+// Rota para servir o index.html quando acessarem a raiz "/"
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '../frontend/index.html'));
+});
+
+
 app.listen(port, () => {
     console.log(`Servidor rodando na porta ${port}`);
 });

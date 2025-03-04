@@ -1,11 +1,21 @@
 const express = require('express');
 const axios = require('axios');
+const path = require('path');
 
 const app = express();
 const port = 3000;
 
 app.use(express.json());
 
+// Servir arquivos estáticos do frontend
+app.use(express.static(path.join(__dirname, '../frontend')));
+
+// Rota para servir o index.html
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '../frontend/index.html'));
+});
+
+// Rota da API de consulta de CEP
 app.get('/consulta/:cep', async (req, res) => {
     const cep = req.params.cep.replace(/\D/g, '');
 
@@ -19,17 +29,6 @@ app.get('/consulta/:cep', async (req, res) => {
         res.status(500).json({ error: "Erro ao consultar o CEP." });
     }
 });
-
-const path = require('path');
-
-// Servir arquivos estáticos do frontend
-app.use(express.static(path.join(__dirname, '../frontend')));
-
-// Rota para servir o index.html quando acessarem a raiz "/"
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '../frontend/index.html'));
-});
-
 
 app.listen(port, () => {
     console.log(`Servidor rodando na porta ${port}`);

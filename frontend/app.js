@@ -9,11 +9,11 @@ function consultarCEP() {
         return;
     }
 
-    // Requisicao a API do ViaCEP
-    fetch(`https://viacep.com.br/ws/${cep}/json/`)
+    // Requisição à API do backend
+    fetch(`/consulta/${cep}`)
         .then(response => response.json())
         .then(data => {
-            if (data.erro) {
+            if (data.error) {
                 resultadoDiv.innerHTML = "CEP não encontrado.";
             } else {
                 resultadoDiv.innerHTML = `

@@ -18,7 +18,6 @@
 
         <!-- Campo de entrada para o usuário digitar o CEP -->
         <input type="text" id="cep" placeholder="Digite o CEP" style="border-radius: 8px;" />
-
         
         <!-- Botão para disparar a função de consulta do CEP -->
         <button onclick="consultarCEP()">Consultar</button>
@@ -29,13 +28,13 @@
         <!-- Título secundário para a seção de endereços armazenados -->
         <h2>Endereços Armazenados</h2>
 
-        <!-- Select (dropdown) para o usuário escolher a ordem de classificação dos endereços (crescente ou decrescente) -->
-        <label for="ordem">Escolha a ordem:</label>
-        <select id="ordem">
-            <!-- Opções para ordenação crescente e decrescente -->
-            <option value="asc">Crescente</option>
-            <option value="desc">Decrescente</option>
-        </select>
+          
+          <label for="ordem">Escolha a ordem:</label>
+          <select id="ordem">
+              <option value="asc">Crescente</option>
+              <option value="desc">Decrescente</option>
+          </select>
+          
 
         <!-- Botões para o usuário ordenar a lista de endereços por cidade, bairro ou estado -->
         <button onclick="ordenarTabela('logradouro')">Ordenar por Endereço</button>
@@ -59,6 +58,7 @@
         </table>
         <div class="assinatura">
             <p>Feito com ❤️ por <strong>Sophia Picasky Alberton</strong></p>
+            <div class="gif-transparente"></div> <!-- GIF com fundo transparente -->
         </div>        
     </div>
 

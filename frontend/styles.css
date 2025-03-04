@@ -1,124 +1,143 @@
 /* Estilo geral do corpo da página */
 body {
-    /* Define a fonte da página como Arial, se não estiver disponível, usa a fonte sans-serif */
     font-family: Arial, sans-serif;
-    
-    /* Cor de fundo suave para toda a página */
     background-color: #ffffff;
-    
-    /* Remove as margens padrão da página */
     margin: 0;
-    
-    /* Adiciona um espaçamento de 20px em torno de todo o conteúdo da página */
     padding: 20px;
 }
 
 /* Estilo para o contêiner principal da página */
 .container {
-    /* Define a largura máxima do contêiner como 900px */
     max-width: 900px;
-    
-    /* Centraliza o contêiner horizontalmente */
     margin: 0 auto;
-    
-    /* Adiciona um espaçamento interno de 20px ao redor do conteúdo */
     padding: 20px;
-    
-    /* Cor de fundo branca para destacar o conteúdo em relação ao fundo da página */
     background-color: #c2c2c2;
-    
-    /* Bordas arredondadas nas extremidades do contêiner */
     border-radius: 8px;
-    
-    /* Adiciona uma sombra suave ao redor do contêiner para dar profundidade */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 /* Estilo para o campo de entrada (input) */
 input {
-    /* Adiciona um espaçamento interno de 10px dentro do campo de entrada */
     padding: 10px;
-    
-    /* Define um espaçamento à direita do campo de entrada para separar do botão */
     margin-right: 10px;
 }
 
 /* Estilo para o botão */
 button {
-    /* Adiciona um espaçamento interno de 10px dentro do botão */
     padding: 10px;
-    
-    /* Define a cor de fundo do botão como verde */
-    background-color: #6d8ddf;
-    
-    /* Define a cor do texto do botão como branco */
+    background-color: #ae6ca3;
     color: white;
-    
-    /* Remove as bordas padrão do botão */
     border: none;
-    
-    /* Define o cursor como pointer para indicar que é clicável */
     cursor: pointer;
-
-    /* Bordas arredondadas nas extremidades do contêiner */
     border-radius: 8px;
 }
 
 /* Estilo para o botão quando o mouse está sobre ele */
 button:hover {
-    /* Muda a cor de fundo do botão quando o mouse passa sobre ele para um verde mais escuro */
-    background-color: #6d8ddf;
+    background-color: #ae6ca3;
 }
 
 /* Estilo para a tabela */
 table {
-    /* Faz a tabela ocupar 100% da largura disponível */
     width: 100%;
-    
-    /* Remove os espaçamentos entre as células da tabela */
     border-collapse: collapse;
-    
-    /* Adiciona um espaçamento superior de 20px entre a tabela e outros elementos acima dela */
     margin-top: 20px;
 }
 
 /* Estilo para as células de cabeçalho (th) e de dados (td) */
 th, td {
-    /* Adiciona um espaçamento interno de 12px nas células */
     padding: 12px;
-    
-    /* Alinha o texto à esquerda dentro das células */
     text-align: left;
-    
-    /* Adiciona uma borda fina e discreta ao redor das células */
     border: 1px solid #ddd;
 }
 
 /* Estilo para o cabeçalho da tabela */
 th {
-    /* Cor de fundo suave para os cabeçalhos das colunas */
     background-color: #f4f4f4;
 }
 
 /* Estilo para as células de dados da tabela */
 td {
-    /* Cor de fundo branca para as células de dados */
     background-color: #fff;
 }
 
 /* Estilo para os botões de ordenação (se existirem) */
 button {
-    /* Adiciona um espaçamento superior de 20px para separar os botões das tabelas ou outros elementos */
     margin-top: 20px;
 }
 
 .assinatura {
-    text-align: center; /* Centraliza o texto */
-    margin-top: 40px; /* Espaço superior para afastar do conteúdo */
-    font-size: 14px; /* Tamanho de fonte */
-    color: #555; /* Cor do texto */
+    text-align: center;
+    margin-top: 40px;
+    font-size: 14px;
+    color: #555;
 }
 
 .assinatura strong {
-    color: #af4c9e; /* Cor para destacar o nome */
+    color: #af4c9e;
+}
+
+/* Estilo para a mensagem de erro */
+.mensagem-erro {
+    color: red;
+    font-size: 14px;
+    margin-top: 15px;
+}
+
+/* Estilo para aumentar a fonte e centralizar o título */
+h1 {
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.resultado-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: relative;
+}
+
+/* Estilo para a área de resultados */
+.resultado {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Estilo para o label */
+label {
+    font-size: 16px;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+/* Estilo para o select */
+#ordem {
+    padding: 10px 15px;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    font-size: 16px;
+    transition: border 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+/* Efeito ao passar o mouse (hover) */
+#ordem:hover {
+    background-color: #e2e2e2;
+    border-color: #aaa;
+}
+
+/* Efeito ao focar no campo */
+#ordem:focus {
+    background-color: #fff;
+    border-color: #4a90e2;
+    outline: none;
+}
+
+/* Estilo das opções */
+#ordem option {
+    padding: 10px;
 }

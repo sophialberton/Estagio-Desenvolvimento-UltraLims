@@ -8,9 +8,9 @@ function consultarCEP() {
     // Pega a div onde serão mostrados os resultados da consulta
     const resultadoDiv = document.getElementById('resultado');
 
-    // Verifica se o CEP tem exatamente 8 dígitos, caso contrário, mostra um alerta
-    if (cep.length !== 8) {
-        alert("CEP inválido!");
+    // Verifica se o CEP tem exatamente 8 dígitos e é um número válido
+    if (cep.length !== 8 || isNaN(cep)) {
+        resultadoDiv.innerHTML = '<p class="mensagem-erro">CEP inválido! Por favor, insira um CEP válido.</p>';
         return; // Se o CEP for inválido, a função é interrompida aqui
     }
 
@@ -20,7 +20,7 @@ function consultarCEP() {
         .then(data => {
             // Se a resposta da API contiver um erro, exibe a mensagem de "CEP não encontrado"
             if (data.error) {
-                resultadoDiv.innerHTML = "CEP não encontrado.";
+                resultadoDiv.innerHTML = '<p class="mensagem-erro">CEP não encontrado.</p>';
             } else {
                 // Caso o CEP seja encontrado, mostra os dados do endereço na tela
                 resultadoDiv.innerHTML = `
@@ -33,11 +33,13 @@ function consultarCEP() {
                 listaEnderecos.push(data);
                 // Atualiza a tabela para mostrar os novos endereços armazenados
                 atualizarTabela();
+                // Ordena a tabela após adicionar o novo endereço
+                ordenarTabela('localidade'); // Ou outro campo desejado para ordenação
             }
         })
         .catch(error => {
             // Se ocorrer um erro durante a requisição, exibe uma mensagem de erro
-            resultadoDiv.innerHTML = "Erro ao consultar o CEP.";
+            resultadoDiv.innerHTML = '<p class="mensagem-erro">Erro ao consultar o CEP. Tente novamente.</p>';
             console.error(error); // Exibe o erro no console para facilitar o debug
         });
 }
@@ -81,4 +83,3 @@ function ordenarTabela(campo) {
 
     atualizarTabela();  // Atualiza a tabela após a ordenação
 }
-

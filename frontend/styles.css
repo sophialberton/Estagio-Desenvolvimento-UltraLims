@@ -141,3 +141,27 @@ label {
 #ordem option {
     padding: 10px;
 }
+
+/* Estilo para a célula do estado */
+td.estado {
+    position: relative;
+    padding-right: 30px; /* Espaço para o ícone de lixeira */
+}
+
+/* Estilo para o ícone de lixeira */
+.lixeira {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%); /* Para centralizar verticalmente */
+    width: 18px;
+    height: 18px;
+    background-image: url('https://img.icons8.com/ios-filled/50/000000/trash.png'); /* URL do ícone de lixeira */
+    background-size: cover;
+    cursor: pointer;
+}
+
+/* Opcional: mudar a aparência quando o ícone for hover */
+.lixeira:hover {
+    opacity: 0.7;
+}

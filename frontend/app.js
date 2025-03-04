@@ -1,85 +1,101 @@
-// Lista para armazenar os endereços que o usuário consultar
-const listaEnderecos = [];
+// Função para salvar os endereços no localStorage
+function salvarNoLocalStorage() {
+    localStorage.setItem('enderecos', JSON.stringify(listaEnderecos));
+}
+
+// Função para carregar os endereços do localStorage
+function carregarDoLocalStorage() {
+    const enderecosSalvos = localStorage.getItem('enderecos');
+    if (enderecosSalvos) {
+        listaEnderecos = JSON.parse(enderecosSalvos);
+    }
+    atualizarTabela();
+}
 
 // Função para consultar o CEP e buscar as informações do endereço
 function consultarCEP() {
-    // Pega o valor do CEP inserido no campo de entrada e remove qualquer caractere não numérico
-    const cep = document.getElementById('cep').value.replace(/\D/g, '');
-    // Pega a div onde serão mostrados os resultados da consulta
+    const cep = document.getElementById('cep').value.replace(/\D/g, ''); // Limpa qualquer caractere não numérico
     const resultadoDiv = document.getElementById('resultado');
 
-    // Verifica se o CEP tem exatamente 8 dígitos e é um número válido
+    // Verifica se o CEP é válido
     if (cep.length !== 8 || isNaN(cep)) {
         resultadoDiv.innerHTML = '<p class="mensagem-erro">CEP inválido! Por favor, insira um CEP válido.</p>';
-        return; // Se o CEP for inválido, a função é interrompida aqui
+        return;
     }
 
-    // Requisição à API do backend que vai consultar o CEP na API ViaCEP
-    fetch(`/consulta/${cep}`)
-        .then(response => response.json())  // Converte a resposta para JSON
+    // Faz a consulta ao CEP (Aqui pode ser a API ViaCEP ou a sua implementação)
+    fetch(`https://viacep.com.br/ws/${cep}/json/`) // Usando o ViaCEP como exemplo
+        .then(response => response.json())
         .then(data => {
-            // Se a resposta da API contiver um erro, exibe a mensagem de "CEP não encontrado"
-            if (data.error) {
+            if (data.erro) {
                 resultadoDiv.innerHTML = '<p class="mensagem-erro">CEP não encontrado.</p>';
             } else {
-                // Caso o CEP seja encontrado, mostra os dados do endereço na tela
+                // Exibe o resultado
                 resultadoDiv.innerHTML = `
                     <p><strong>Endereço:</strong> ${data.logradouro}</p>
                     <p><strong>Bairro:</strong> ${data.bairro}</p>
                     <p><strong>Cidade:</strong> ${data.localidade}</p>
                     <p><strong>Estado:</strong> ${data.uf}</p>
                 `;
-                // Adiciona os dados do endereço à lista de endereços
+
+                // Adiciona o endereço à lista
                 listaEnderecos.push(data);
-                // Atualiza a tabela para mostrar os novos endereços armazenados
-                atualizarTabela();
-                // Ordena a tabela após adicionar o novo endereço
-                ordenarTabela('localidade'); // Ou outro campo desejado para ordenação
+                salvarNoLocalStorage(); // Salva no localStorage após adicionar o endereço
+                atualizarTabela(); // Atualiza a tabela de endereços
+                ordenarTabela('localidade'); // Ordena os dados por cidade, por exemplo
             }
         })
         .catch(error => {
-            // Se ocorrer um erro durante a requisição, exibe uma mensagem de erro
             resultadoDiv.innerHTML = '<p class="mensagem-erro">Erro ao consultar o CEP. Tente novamente.</p>';
-            console.error(error); // Exibe o erro no console para facilitar o debug
+            console.error(error);
         });
 }
 
 // Função para atualizar a tabela exibindo os endereços armazenados
 function atualizarTabela() {
-    // Pega a referência da tabela onde os endereços serão listados
     const tabela = document.getElementById('lista-enderecos');
-    // Limpa o conteúdo da tabela antes de adicionar os novos dados
-    tabela.innerHTML = '';
+    tabela.innerHTML = ''; // Limpa a tabela antes de adicionar os dados
 
-    // Itera sobre cada endereço armazenado na lista
-    listaEnderecos.forEach(endereco => {
-        // Cria uma nova linha (tr) para cada endereço
+    listaEnderecos.forEach((endereco, index) => {
         const tr = document.createElement('tr');
-        // Adiciona as células (td) na linha com os dados do endereço
         tr.innerHTML = `
-            <td>${endereco.logradouro}</td> <!-- Endereço -->
-            <td>${endereco.bairro}</td>     <!-- Bairro -->
-            <td>${endereco.localidade}</td>  <!-- Cidade -->
-            <td>${endereco.uf}</td>         <!-- Estado -->
+            <td>${endereco.logradouro}</td>
+            <td>${endereco.bairro}</td>
+            <td>${endereco.localidade}</td>
+            <td class="estado">
+                ${endereco.uf}
+                <span class="lixeira" onclick="excluirEndereco(${index})"></span>
+            </td>
         `;
-        // Adiciona a linha criada à tabela
         tabela.appendChild(tr);
     });
 }
 
-// Função para ordenar a tabela por um campo específico (cidade, bairro ou estado)
+// Função para excluir um endereço da lista
+function excluirEndereco(index) {
+    // Remove o endereço da lista
+    listaEnderecos.splice(index, 1);
+    salvarNoLocalStorage(); // Atualiza o localStorage após a exclusão
+    atualizarTabela(); // Atualiza a tabela de endereços
+}
+
+// Função para ordenar a tabela por um campo específico
 function ordenarTabela(campo) {
-    const ordemSelecionada = document.getElementById('ordem').value; // Obtém o valor da ordem (asc ou desc)
+    const ordemSelecionada = document.getElementById('ordem').value;
 
     listaEnderecos.sort((a, b) => {
-        let valorA = a[campo].toLowerCase();  // Obtém o valor do campo A
-        let valorB = b[campo].toLowerCase();  // Obtém o valor do campo B
+        let valorA = a[campo].toLowerCase();
+        let valorB = b[campo].toLowerCase();
 
-        // Ordenação crescente ou decrescente com base na escolha do usuário
         if (valorA < valorB) return ordemSelecionada === 'asc' ? -1 : 1;
         if (valorA > valorB) return ordemSelecionada === 'asc' ? 1 : -1;
         return 0;
     });
 
-    atualizarTabela();  // Atualiza a tabela após a ordenação
+    atualizarTabela(); // Atualiza a tabela após ordenar
 }
+
+// Carrega os endereços do localStorage quando a página é carregada
+window.onload = function() {
+    carregarDoLocalStorage();
+};

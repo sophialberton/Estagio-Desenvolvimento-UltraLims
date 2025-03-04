@@ -67,24 +67,18 @@ function atualizarTabela() {
 
 // Função para ordenar a tabela por um campo específico (cidade, bairro ou estado)
 function ordenarTabela(campo) {
-    // Pega o valor da ordem de classificação (crescente ou decrescente) selecionado pelo usuário
-    const ordemSelecionada = document.getElementById('ordem').value;
+    const ordemSelecionada = document.getElementById('ordem').value; // Obtém o valor da ordem (asc ou desc)
 
-    // Ordena a lista de endereços com base no campo selecionado (cidade, bairro ou estado)
     listaEnderecos.sort((a, b) => {
-        // Converte os valores dos campos para minúsculas para evitar problemas de ordenação com maiúsculas/minúsculas
-        let valorA = a[campo].toLowerCase();
-        let valorB = b[campo].toLowerCase();
+        let valorA = a[campo].toLowerCase();  // Obtém o valor do campo A
+        let valorB = b[campo].toLowerCase();  // Obtém o valor do campo B
 
-        // Compara os valores dos campos e retorna:
-        // -1 para ordenar em ordem crescente
-        // 1 para ordenar em ordem decrescente
-        // 0 para indicar que os dois valores são iguais
+        // Ordenação crescente ou decrescente com base na escolha do usuário
         if (valorA < valorB) return ordemSelecionada === 'asc' ? -1 : 1;
         if (valorA > valorB) return ordemSelecionada === 'asc' ? 1 : -1;
-        return 0; // Se os valores são iguais, não há alteração na ordem
+        return 0;
     });
 
-    // Após ordenar, atualiza a tabela para refletir a nova ordem
-    atualizarTabela();
+    atualizarTabela();  // Atualiza a tabela após a ordenação
 }
+

@@ -4,7 +4,7 @@ body {
     font-family: Arial, sans-serif;
     
     /* Cor de fundo suave para toda a página */
-    background-color: #f4f4f4;
+    background-color: #ffffff;
     
     /* Remove as margens padrão da página */
     margin: 0;
@@ -25,7 +25,7 @@ body {
     padding: 20px;
     
     /* Cor de fundo branca para destacar o conteúdo em relação ao fundo da página */
-    background-color: #fff;
+    background-color: #c2c2c2;
     
     /* Bordas arredondadas nas extremidades do contêiner */
     border-radius: 8px;
@@ -49,7 +49,7 @@ button {
     padding: 10px;
     
     /* Define a cor de fundo do botão como verde */
-    background-color: #4CAF50;
+    background-color: #6d8ddf;
     
     /* Define a cor do texto do botão como branco */
     color: white;
@@ -59,12 +59,15 @@ button {
     
     /* Define o cursor como pointer para indicar que é clicável */
     cursor: pointer;
+
+    /* Bordas arredondadas nas extremidades do contêiner */
+    border-radius: 8px;
 }
 
 /* Estilo para o botão quando o mouse está sobre ele */
 button:hover {
     /* Muda a cor de fundo do botão quando o mouse passa sobre ele para um verde mais escuro */
-    background-color: #45a049;
+    background-color: #6d8ddf;
 }
 
 /* Estilo para a tabela */
@@ -107,4 +110,15 @@ td {
 button {
     /* Adiciona um espaçamento superior de 20px para separar os botões das tabelas ou outros elementos */
     margin-top: 20px;
+}
+
+.assinatura {
+    text-align: center; /* Centraliza o texto */
+    margin-top: 40px; /* Espaço superior para afastar do conteúdo */
+    font-size: 14px; /* Tamanho de fonte */
+    color: #555; /* Cor do texto */
+}
+
+.assinatura strong {
+    color: #af4c9e; /* Cor para destacar o nome */
 }

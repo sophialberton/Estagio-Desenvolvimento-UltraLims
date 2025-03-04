@@ -17,7 +17,8 @@
         <h1>Consulta de Endereço pelo CEP</h1>
 
         <!-- Campo de entrada para o usuário digitar o CEP -->
-        <input type="text" id="cep" placeholder="Digite o CEP" />
+        <input type="text" id="cep" placeholder="Digite o CEP" style="border-radius: 8px;" />
+
         
         <!-- Botão para disparar a função de consulta do CEP -->
         <button onclick="consultarCEP()">Consultar</button>
@@ -37,8 +38,9 @@
         </select>
 
         <!-- Botões para o usuário ordenar a lista de endereços por cidade, bairro ou estado -->
-        <button onclick="ordenarTabela('cidade')">Ordenar por Cidade</button>
+        <button onclick="ordenarTabela('logradouro')">Ordenar por Endereço</button>
         <button onclick="ordenarTabela('bairro')">Ordenar por Bairro</button>
+        <button onclick="ordenarTabela('cidade')">Ordenar por Cidade</button>
         <button onclick="ordenarTabela('estado')">Ordenar por Estado</button>
 
         <!-- Tabela para exibir a lista de endereços armazenados -->
@@ -55,6 +57,9 @@
             <!-- Corpo da tabela onde as linhas (endereços) serão adicionadas dinamicamente -->
             <tbody id="lista-enderecos"></tbody>
         </table>
+        <div class="assinatura">
+            <p>Feito com ❤️ por <strong>Sophia Picasky Alberton</strong></p>
+        </div>        
     </div>
 
     <!-- Link para o arquivo JavaScript, que contém as funções responsáveis pela lógica da página -->

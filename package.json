@@ -1,0 +1,24 @@
+{
+  "name": "desafio",
+  "version": "1.0.0",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sophialberton/Sistema-Web-para-Consulta-e-Armazenamento-de-Endere-os.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sophialberton/Sistema-Web-para-Consulta-e-Armazenamento-de-Endere-os/issues"
+  },
+  "homepage": "https://github.com/sophialberton/Sistema-Web-para-Consulta-e-Armazenamento-de-Endere-os#readme",
+  "description": "",
+  "dependencies": {
+    "axios": "^1.8.1",
+    "express": "^4.21.2"
+  }
+}

@@ -45,18 +45,13 @@ Este sistema permite consultar um endereço a partir de um CEP e armazenar esses
 1. Clone este repositório para o seu ambiente local.
 2. No terminal, navegue até o diretório do projeto.
 3. Instale as dependências executando:
-   ```
+   ```bash
    npm install
-   ```
-4. Inicie o servidor com o comando:
-   ```
-   npm start
-   ```
-5. Acesse o sistema em `http://localhost:3000` no seu navegador.  
-
----
-
-## Licença
-
-Este projeto está licenciado sob a MIT License - veja o arquivo [LICENSE](LICENSE) para mais detalhes.
-```
+Inicie o servidor com o comando:
+bash
+Copiar
+Editar
+npm start
+Acesse o sistema em http://localhost:3000 no seu navegador.
+Licença
+Este projeto está licenciado sob a MIT License - veja o arquivo LICENSE para mais detalhes.

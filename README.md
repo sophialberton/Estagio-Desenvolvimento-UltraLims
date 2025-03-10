@@ -1,5 +1,3 @@
-
-```markdown
 # Sistema de Consulta de Endereço pelo CEP
 
 Este sistema permite consultar um endereço a partir de um CEP e armazenar esses endereços em uma lista. O usuário pode ordenar os endereços por cidade, bairro ou estado, de forma crescente ou decrescente. Além disso, o sistema permite a exclusão de endereços individuais da lista por meio de um ícone discreto de lixeira. Abaixo estão as tecnologias utilizadas e o funcionamento do sistema.

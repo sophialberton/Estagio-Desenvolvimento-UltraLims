@@ -1,6 +1,8 @@
-# Sistema de Consulta de Endereço pelo CEP
+# Desafio-2 - Sistema Web para Consulta e Armazenamento de Endereços
 
-Este sistema permite consultar um endereço a partir de um CEP e armazenar esses endereços em uma lista. O usuário pode ordenar os endereços por cidade, bairro ou estado, de forma crescente ou decrescente. Além disso, o sistema permite a exclusão de endereços individuais da lista por meio de um ícone discreto de lixeira. Abaixo estão as tecnologias utilizadas e o funcionamento do sistema.
+## Sistema de Consulta de Endereço pelo CEP
+
+Este sistema permite consultar um endereço a partir de um CEP e armazenar esses endereços em uma lista. O usuário pode ordenar os endereços por cidade, bairro ou estado, de forma crescente ou decrescente. Além disso, o sistema permite a exclusão de endereços individuais da lista por meio de um ícone discreto de lixeira.
 
 ---
 
@@ -8,18 +10,15 @@ Este sistema permite consultar um endereço a partir de um CEP e armazenar esses
 
 ### **Frontend**
 - **HTML**: Estrutura da página web, com campos de input, botões e tabela para exibição dos endereços.
-- **CSS**: Estilização da página, proporcionando uma interface agradável com cores, margens, tabelas e botões. O layout foi projetado para ser responsivo e interativo.
-- **JavaScript**: Responsável pela interação no frontend, captura de dados, manipulação da DOM, realização de requisições para a API ViaCEP e atualização dinâmica da tabela de endereços.
-- **Fetch API**: Usada para fazer requisições assíncronas ao backend, que consulta a API ViaCEP e retorna os dados ao frontend.
+- **CSS**: Estilização da página, proporcionando uma interface agradável e responsiva.
+- **JavaScript**: Responsável pela interação no frontend, manipulação da DOM, consumo da API e atualização dinâmica da tabela de endereços.
+- **Fetch API**: Utilizada para realizar requisições assíncronas ao backend.
 
 ### **Backend**
-- **Node.js**: Plataforma JavaScript no backend, que executa o servidor e gerencia as requisições feitas pelo frontend.
-- **Express.js**: Framework para Node.js utilizado para criar rotas e gerenciar as requisições HTTP de forma simples e rápida.
-- **Axios**: Biblioteca JavaScript utilizada no backend para consultar a API ViaCEP e obter informações sobre os endereços.
-- **API ViaCEP**: API pública que fornece dados de endereço a partir de um CEP, sendo consultada pelo backend.
-
-### **Outras Tecnologias**
-- **Tabela HTML**: Usada para exibir os endereços armazenados, permitindo a ordenação e a exclusão dos mesmos.
+- **Node.js**: Plataforma utilizada para executar o servidor backend.
+- **Express.js**: Framework para gerenciar as requisições HTTP de forma eficiente.
+- **Axios**: Biblioteca para consumir a API ViaCEP.
+- **API ViaCEP**: API utilizada para obter os endereços a partir do CEP informado.
 
 ---
 
@@ -29,29 +28,57 @@ Este sistema permite consultar um endereço a partir de um CEP e armazenar esses
 1. O usuário insere um **CEP** no campo de input e clica no botão **Consultar**.
 2. O sistema faz uma requisição à API ViaCEP para obter as informações do endereço.
 3. O endereço retornado é exibido na tela e armazenado em uma lista interna.
-4. A lista de endereços armazenados é exibida em uma tabela HTML. Cada linha da tabela exibe os detalhes do endereço.
-5. Ao lado da sigla do **Estado**, um ícone de lixeira é exibido, permitindo que o usuário exclua um endereço individualmente.
-6. O usuário pode ordenar a lista por **Cidade**, **Bairro** ou **Estado**, escolhendo a ordem (crescente ou decrescente) por meio de um seletor de opções.
+4. A lista de endereços é exibida em uma tabela, permitindo ordenar por **Cidade**, **Bairro** ou **Estado**.
+5. O usuário pode excluir um endereço individualmente clicando no ícone de lixeira ao lado da sigla do **Estado**.
 
 ### **Backend**
 1. O servidor é executado utilizando **Node.js** e **Express.js**.
-2. Quando o usuário consulta um CEP, o backend realiza uma requisição à API **ViaCEP** para obter as informações do endereço.
-3. Os dados retornados pela API são enviados de volta ao frontend em formato JSON.
+2. Quando o usuário consulta um CEP, o backend faz uma requisição à API **ViaCEP**.
+3. Os dados retornados pela API são enviados ao frontend em formato JSON.
+
+---
+
+O que você escreveu está ótimo! Aqui está a versão com a regra que discutimos, tudo organizado no formato de instruções para o `README.md`:
 
 ---
 
 ## Como Rodar o Sistema
 
-1. Clone este repositório para o seu ambiente local.
-2. No terminal, navegue até o diretório do projeto.
-3. Instale as dependências executando:
+1. **Clone este repositório para o seu ambiente local**:
+   ```bash
+   git clone https://github.com/sophialberton/Estagio-Desenvolvimento-UltraLims.git
+   ```
+
+2. **Entre no diretório `backend`**:
+   Navegue até a pasta onde o arquivo do servidor (`server.js`) está localizado:
+
+   ```bash
+   cd ./backend
+   ```
+
+3. **Instale as dependências**:
+   Certifique-se de que todas as dependências do projeto estão instaladas:
+
    ```bash
    npm install
-Inicie o servidor com o comando:
-bash
-Copiar
-Editar
-npm start
-Acesse o sistema em http://localhost:3000 no seu navegador.
-Licença
-Este projeto está licenciado sob a MIT License - veja o arquivo LICENSE para mais detalhes.
+   ```
+
+4. **Inicie o servidor**:
+   Após as dependências estarem instaladas, inicie o servidor com o comando:
+
+   ```bash
+   npm start
+   ```
+
+5. **Acesse o sistema no navegador**:
+   Abra o navegador e acesse a aplicação em:
+
+   ```
+   http://localhost:3000
+   ```
+---
+
+## Licença
+
+Este projeto está licenciado sob a [Licença MIT](https://opensource.org/licenses/MIT).
+

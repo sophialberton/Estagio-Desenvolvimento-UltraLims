@@ -38,44 +38,39 @@ Este sistema permite consultar um endereço a partir de um CEP e armazenar esses
 
 ---
 
-O que você escreveu está ótimo! Aqui está a versão com a regra que discutimos, tudo organizado no formato de instruções para o `README.md`:
+## Como Clonar e Rodar o Sistema
 
----
+Como o **Desafio 2** está incluído como um **submódulo**, é necessário clonar corretamente o repositório e inicializar os submódulos.
 
-## Como Rodar o Sistema
+### **Passos para Clonar e Inicializar o Submódulo**
 
-1. **Clone este repositório para o seu ambiente local**:
+1. **Clone este repositório para o seu ambiente local, incluindo os submódulos:**
    ```bash
-   git clone https://github.com/sophialberton/Estagio-Desenvolvimento-UltraLims.git
+   git clone --recurse-submodules https://github.com/sophialberton/Estagio-Desenvolvimento-UltraLims.git
    ```
 
-2. **Entre no diretório `backend`**:
-   Navegue até a pasta onde o arquivo do servidor (`server.js`) está localizado:
-
+   Se já tiver clonado o repositório sem os submódulos, use:
    ```bash
-   cd ./backend
+   git submodule update --init --recursive
    ```
 
-3. **Instale as dependências**:
-   Certifique-se de que todas as dependências do projeto estão instaladas:
+2. **Entre no diretório do backend:**
+   ```bash
+   cd Estagio-Desenvolvimento-UltraLims/Desafio2/backend
+   ```
 
+3. **Instale as dependências do backend:**
    ```bash
    npm install
    ```
 
-4. **Inicie o servidor**:
-   Após as dependências estarem instaladas, inicie o servidor com o comando:
-
+4. **Inicie o servidor backend:**
    ```bash
    npm start
    ```
 
-5. **Acesse o sistema no navegador**:
-   Abra o navegador e acesse a aplicação em:
+5. **Acesse o frontend abrindo o arquivo `index.html` no navegador.**
 
-   ```
-   http://localhost:3000
-   ```
 ---
 
 ## Licença
